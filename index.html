@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>HUMN Ritual Sound Studio</title>
+  <style>
+    body { font-family: Arial, sans-serif; text-align: center; background: #1F1F1F; color: #FFFFFF; padding: 50px; }
+    h1 { font-family: Montserrat, sans-serif; }
+    input { padding: 10px; width: 300px; }
+    button { padding: 10px 20px; background: #FF6F3C; border: none; color: #fff; cursor: pointer; margin-left: 10px; }
+    audio { margin-top: 30px; display: block; }
+    .info { margin-top: 20px; }
+  </style>
+</head>
+<body>
+  <h1>HUMN Ritual Sound Studio</h1>
+  <p>Type your intention below:</p>
+  <input type="text" id="prompt" placeholder="I need calm focus...">
+  <button onclick="generateRitual()">Record My Ritual</button>
+
+  <div class="info" id="ritualInfo"></div>
+  <audio id="player" controls></audio>
+  <a id="downloadLink" href="#" download style="display:none;">Download This Ritual</a>
+
+  <script src="script.js"></script>
+</body>
+</html>
