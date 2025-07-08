@@ -3,9 +3,27 @@
 <head>
   <meta charset="UTF-8" />
   <title>HUMN Ritual Sound Studio</title>
-  <!-- Import Montserrat & Museo Moderno -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Museo+Moderno:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Montserrat from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Museo Moderno @font-face; host your font files in /fonts/ -->
   <style>
+    @font-face {
+      font-family: 'MuseoModerno';
+      src: url('fonts/MuseoModerno-Regular.woff2') format('woff2'),
+           url('fonts/MuseoModerno-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'MuseoModerno';
+      src: url('fonts/MuseoModerno-Bold.woff2') format('woff2'),
+           url('fonts/MuseoModerno-Bold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+    }
+
     :root {
       --bg: #1F1F1F;
       --accent: #FF6F3C;
@@ -13,6 +31,7 @@
       --text: #FFFFFF;
       --gray: #CCCCCC;
     }
+
     body {
       background: var(--bg);
       color: var(--text);
@@ -20,26 +39,34 @@
       text-align: center;
       padding: 60px 20px;
     }
-    /* Headings use Museo Moderno */
+
+    /* Logo */
+    #logo {
+      max-width: 180px;
+      margin-bottom: 30px;
+    }
+
+    /* Header in Museo Moderno */
     h1 {
-      font-family: 'Museo Moderno', serif;
-      font-size: 2.2rem;
+      font-family: 'MuseoModerno', serif;
+      font-size: 2.5rem;
       margin-bottom: 10px;
     }
-    /* Subhead and body text Montserrat */
-    p, input, .info, a#downloadLink, button {
-      font-family: 'Montserrat', sans-serif;
-    }
+
     p {
       color: var(--gray);
       margin-bottom: 30px;
     }
+
+    /* Input stays Montserrat */
     input {
       padding: 12px 20px;
       width: 280px;
       border: 1px solid var(--gray);
       border-radius: 6px;
+      font-family: 'Montserrat', sans-serif;
     }
+
     button {
       padding: 12px 24px;
       background: var(--accent);
@@ -49,20 +76,27 @@
       border-radius: 6px;
       cursor: pointer;
       margin-left: 10px;
-      transition: background 0.2s;
+      transition: background 0.2s ease;
+      font-family: 'Montserrat', sans-serif;
     }
-    button:hover { background: #e55c29; }
+
+    button:hover {
+      background: #e55c29;
+    }
+
     .info {
       margin-top: 30px;
       color: var(--mint);
+      font-family: 'Montserrat', sans-serif;
       font-size: 1.1rem;
-      display: block;
     }
+
     audio {
       margin-top: 20px;
       width: 100%;
       max-width: 500px;
     }
+
     a#downloadLink {
       display: inline-block;
       margin-top: 20px;
@@ -72,21 +106,39 @@
       text-decoration: none;
       border-radius: 20px;
       font-weight: bold;
-      transition: background 0.2s;
+      transition: background 0.2s ease;
+      font-family: 'Montserrat', sans-serif;
     }
-    a#downloadLink:hover { background: #87d9b9; }
+
+    a#downloadLink:hover {
+      background: #87d9b9;
+    }
   </style>
 </head>
 <body>
+
+  <!-- Your Logo -->
+  <img
+    id="logo"
+    src="https://static.wixstatic.com/media/57976b_b497e475edce4f1eaaff06cafa69d052~mv2.jpg"
+    alt="HUMN Logo"
+  />
+
+  <!-- Hero Text -->
   <h1>HUMN Ritual Sound Studio</h1>
   <p>Type your intention and craft your ritual tape</p>
 
-  <input type="text" id="prompt" placeholder="I need calm focus...">
+  <!-- Prompt + Button -->
+  <input type="text" id="prompt" placeholder="I need calm focus..." />
   <button onclick="generateRitual()">Record My Ritual</button>
 
+  <!-- Ritual Info / Player / Download -->
   <div class="info" id="ritualInfo"></div>
   <audio id="player" controls></audio>
-  <a id="downloadLink" href="#" download style="display:none;">Download This Ritual</a>
+  <br />
+  <a id="downloadLink" href="#" download style="display:none;">
+    Download This Ritual
+  </a>
 
   <script src="script.js"></script>
 </body>
