@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <title>HUMN Ritual Sound Studio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Museo+Moderno:wght@400;700&family=Lora:ital@1&display=swap" rel="stylesheet">
+  <!-- Import Montserrat & Museo Moderno -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Museo+Moderno:wght@400;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #1F1F1F;
@@ -12,7 +13,6 @@
       --text: #FFFFFF;
       --gray: #CCCCCC;
     }
-
     body {
       background: var(--bg);
       color: var(--text);
@@ -20,27 +20,26 @@
       text-align: center;
       padding: 60px 20px;
     }
-
+    /* Headings use Museo Moderno */
     h1 {
-      font-family: 'Museo Moderno', sans-serif;
+      font-family: 'Museo Moderno', serif;
       font-size: 2.2rem;
       margin-bottom: 10px;
     }
-
+    /* Subhead and body text Montserrat */
+    p, input, .info, a#downloadLink, button {
+      font-family: 'Montserrat', sans-serif;
+    }
     p {
       color: var(--gray);
       margin-bottom: 30px;
-      font-family: 'Montserrat', sans-serif;
     }
-
     input {
       padding: 12px 20px;
       width: 280px;
       border: 1px solid var(--gray);
       border-radius: 6px;
-      font-family: 'Montserrat', sans-serif;
     }
-
     button {
       padding: 12px 24px;
       background: var(--accent);
@@ -50,26 +49,20 @@
       border-radius: 6px;
       cursor: pointer;
       margin-left: 10px;
-      transition: background 0.2s ease;
+      transition: background 0.2s;
     }
-
-    button:hover {
-      background: #e55c29;
-    }
-
+    button:hover { background: #e55c29; }
     .info {
       margin-top: 30px;
       color: var(--mint);
-      font-family: 'Montserrat', sans-serif;
       font-size: 1.1rem;
+      display: block;
     }
-
     audio {
       margin-top: 20px;
       width: 100%;
       max-width: 500px;
     }
-
     a#downloadLink {
       display: inline-block;
       margin-top: 20px;
@@ -79,13 +72,9 @@
       text-decoration: none;
       border-radius: 20px;
       font-weight: bold;
-      transition: background 0.2s ease;
-      font-family: 'Montserrat', sans-serif;
+      transition: background 0.2s;
     }
-
-    a#downloadLink:hover {
-      background: #87d9b9;
-    }
+    a#downloadLink:hover { background: #87d9b9; }
   </style>
 </head>
 <body>
@@ -97,7 +86,6 @@
 
   <div class="info" id="ritualInfo"></div>
   <audio id="player" controls></audio>
-  <br>
   <a id="downloadLink" href="#" download style="display:none;">Download This Ritual</a>
 
   <script src="script.js"></script>
