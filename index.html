@@ -4,24 +4,21 @@
   <meta charset="UTF-8" />
   <title>HUMN Ritual Sound Studio</title>
 
-  <!-- Montserrat from Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <!-- Montserrat only -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+    rel="stylesheet"
+  />
 
-  <!-- Museo Moderno @font-face; host your font files in /fonts/ -->
   <style>
+    /* Museo Moderno Black from local files */
     @font-face {
       font-family: 'MuseoModerno';
-      src: url('fonts/MuseoModerno-Regular.woff2') format('woff2'),
-           url('fonts/MuseoModerno-Regular.woff') format('woff');
-      font-weight: 400;
+      src: url('fonts/MuseoModerno Black.woff2') format('woff2'),
+           url('fonts/MuseoModerno Black.woff') format('woff');
+      font-weight: 900;
       font-style: normal;
-    }
-    @font-face {
-      font-family: 'MuseoModerno';
-      src: url('fonts/MuseoModerno-Bold.woff2') format('woff2'),
-           url('fonts/MuseoModerno-Bold.woff') format('woff');
-      font-weight: 700;
-      font-style: normal;
+      font-display: swap;
     }
 
     :root {
@@ -32,12 +29,14 @@
       --gray: #CCCCCC;
     }
 
+    /* Base styles */
     body {
       background: var(--bg);
       color: var(--text);
       font-family: 'Montserrat', sans-serif;
       text-align: center;
       padding: 60px 20px;
+      margin: 0;
     }
 
     /* Logo */
@@ -46,25 +45,30 @@
       margin-bottom: 30px;
     }
 
-    /* Header in Museo Moderno */
+    /* Heading in Museo Moderno Black */
     h1 {
-      font-family: 'MuseoModerno', serif;
+      font-family: 'MuseoModerno', serif !important;
+      font-weight: 900;
       font-size: 2.5rem;
-      margin-bottom: 10px;
+      margin: 0 0 10px;
+      line-height: 1.2;
     }
 
     p {
       color: var(--gray);
-      margin-bottom: 30px;
+      margin: 0 0 30px;
+      font-size: 1rem;
     }
 
-    /* Input stays Montserrat */
-    input {
+    /* Input & Button */
+    input#prompt {
       padding: 12px 20px;
       width: 280px;
+      max-width: 80%;
       border: 1px solid var(--gray);
       border-radius: 6px;
       font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
     }
 
     button {
@@ -72,18 +76,19 @@
       background: var(--accent);
       border: none;
       color: var(--text);
-      font-weight: bold;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
       border-radius: 6px;
       cursor: pointer;
       margin-left: 10px;
       transition: background 0.2s ease;
-      font-family: 'Montserrat', sans-serif;
+      font-size: 1rem;
     }
-
     button:hover {
       background: #e55c29;
     }
 
+    /* Ritual info */
     .info {
       margin-top: 30px;
       color: var(--mint);
@@ -91,12 +96,14 @@
       font-size: 1.1rem;
     }
 
-    audio {
+    /* Audio player */
+    audio#player {
       margin-top: 20px;
       width: 100%;
       max-width: 500px;
     }
 
+    /* Download link */
     a#downloadLink {
       display: inline-block;
       margin-top: 20px;
@@ -105,41 +112,45 @@
       color: #000;
       text-decoration: none;
       border-radius: 20px;
-      font-weight: bold;
-      transition: background 0.2s ease;
       font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      transition: background 0.2s ease;
     }
-
     a#downloadLink:hover {
       background: #87d9b9;
     }
   </style>
 </head>
-<body>
 
-  <!-- Your Logo -->
+<body>
+  <!-- Logo -->
   <img
     id="logo"
     src="https://static.wixstatic.com/media/57976b_b497e475edce4f1eaaff06cafa69d052~mv2.jpg"
     alt="HUMN Logo"
   />
 
-  <!-- Hero Text -->
+  <!-- Hero -->
   <h1>HUMN Ritual Sound Studio</h1>
   <p>Type your intention and craft your ritual tape</p>
 
-  <!-- Prompt + Button -->
+  <!-- Prompt & Button -->
   <input type="text" id="prompt" placeholder="I need calm focus..." />
   <button onclick="generateRitual()">Record My Ritual</button>
 
-  <!-- Ritual Info / Player / Download -->
+  <!-- Ritual Info -->
   <div class="info" id="ritualInfo"></div>
+
+  <!-- Audio Player -->
   <audio id="player" controls></audio>
+
+  <!-- Download Link -->
   <br />
   <a id="downloadLink" href="#" download style="display:none;">
     Download This Ritual
   </a>
 
+  <!-- Script -->
   <script src="script.js"></script>
 </body>
 </html>
