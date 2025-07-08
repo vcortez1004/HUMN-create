@@ -4,16 +4,26 @@
   <meta charset="UTF-8" />
   <title>HUMN Ritual Sound Studio</title>
 
-  <!-- Google Fonts: Museo Moderno + Montserrat -->
-  <link
-    href="https://fonts.googleapis.com/css2?
-      family=MuseoModerno:wght@400;700&
-      family=Montserrat:wght@400;700&
-      display=swap"
-    rel="stylesheet"
-  />
+  <!-- Montserrat from Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
+  <!-- Museo Moderno @font-face; host your font files in /fonts/ -->
   <style>
+    @font-face {
+      font-family: 'MuseoModerno';
+      src: url('fonts/MuseoModerno-Regular.woff2') format('woff2'),
+           url('fonts/MuseoModerno-Regular.woff') format('woff');
+      font-weight: 400;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: 'MuseoModerno';
+      src: url('fonts/MuseoModerno-Bold.woff2') format('woff2'),
+           url('fonts/MuseoModerno-Bold.woff') format('woff');
+      font-weight: 700;
+      font-style: normal;
+    }
+
     :root {
       --bg: #1F1F1F;
       --accent: #FF6F3C;
@@ -36,7 +46,7 @@
       margin-bottom: 30px;
     }
 
-    /* Museo Moderno for the main heading */
+    /* Header in Museo Moderno */
     h1 {
       font-family: 'MuseoModerno', serif;
       font-size: 2.5rem;
@@ -48,6 +58,7 @@
       margin-bottom: 30px;
     }
 
+    /* Input stays Montserrat */
     input {
       padding: 12px 20px;
       width: 280px;
@@ -68,6 +79,7 @@
       transition: background 0.2s ease;
       font-family: 'Montserrat', sans-serif;
     }
+
     button:hover {
       background: #e55c29;
     }
@@ -97,6 +109,7 @@
       transition: background 0.2s ease;
       font-family: 'Montserrat', sans-serif;
     }
+
     a#downloadLink:hover {
       background: #87d9b9;
     }
